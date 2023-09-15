@@ -1,0 +1,273 @@
+.Classic {
+  .lds {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    div {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      animation: lds-default 1.2s linear infinite;
+    }
+    $positions: (
+      66px,
+      62px,
+      52px,
+      37px,
+      22px,
+      11px,
+      7px,
+      11px,
+      22px,
+      37px,
+      52px,
+      62px,
+      66px,
+      62px,
+      52px
+    );
+
+    @for $i from 1 through 12 {
+      div:nth-child(#{$i}) {
+        $delay: -0.1s * $i;
+        $pos: $i + 3;
+        $top: nth($positions, $pos);
+        $left: nth($positions, $i);
+        animation-delay: $delay;
+        top: $top;
+        left: $left;
+      }
+    }
+
+    @keyframes lds-default {
+      0%,
+      20%,
+      80%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+    }
+  }
+  input {
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+  }
+  .box {
+    .form {
+      inset: 0px;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      .inbox {
+        margin-top: 40px;
+        input {
+          height: 15px;
+        }
+        span {
+          top: -33px !important;
+        }
+      }
+    }
+  }
+  button {
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+  }
+  button:hover {
+    opacity: 0.9;
+  }
+}
+.Classic-light {
+  $color_1: #111111;
+  $color_2: #dadada;
+  $color_3: #626262;
+  $color_4: #ffffff;
+  .lds {
+    div {
+      background: $color_1;
+    }
+  }
+  .box {
+    .form {
+      background-color: $color_2;
+      border-color: $color_1;
+      h2 {
+        color: $color_3;
+      }
+      span {
+        color: $color_3;
+      }
+      a {
+        color: $color_3;
+      }
+      input {
+        color: $color_1;
+        background-color: $color_4;
+      }
+    }
+  }
+  button {
+    background: $color_3;
+    color: $color_1;
+  }
+  .creation,
+  .modification,
+  .deletion {
+    background: $color_2;
+    h2 {
+      color: $color_1;
+    }
+    input {
+      background: $color_4;
+      color: $color_1;
+    }
+    span {
+      color: $color_3;
+    }
+  }
+  aside {
+    background-color: $color_2;
+  }
+  aside::after {
+    background: $color_1;
+  }
+  nav {
+    background-color: $color_2;
+    .menu-toggle {
+      background: $color_2;
+      border-color: $color_3;
+      div {
+        background-color: $color_3;
+      }
+    }
+  }
+  nav::after {
+    background: $color_1;
+  }
+  .events-list {
+    border-color: $color_3;
+  }
+  .icons {
+    border-color: $color_3;
+    color: $color_3;
+    path {
+      color: $color_3;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_1;
+  }
+  .events-list::-webkit-scrollbar-track {
+    background-color: $color_1;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_3;
+  }
+}
+.Classic-dark {
+  $color_1: #ffffff;
+  $color_2: #222222;
+  $color_3: #a3a3a3;
+  $color_4: #a7a7a7;
+  .bg-center {
+    background: #000000;
+  }
+  .lds {
+    div {
+      background: $color_1;
+    }
+  }
+  .box {
+    .form {
+      background-color: $color_2;
+      border-color: $color_1;
+      h2 {
+        color: $color_1;
+      }
+      span {
+        color: $color_1;
+      }
+      a {
+        color: $color_1;
+      }
+      input {
+        color: $color_2;
+        background-color: $color_4;
+      }
+    }
+  }
+  button {
+    background: $color_3;
+    color: $color_2;
+  }
+  .creation,
+  .modification,
+  .deletion {
+    background: $color_2;
+    h2 {
+      color: $color_1;
+    }
+    input {
+      background: $color_4;
+      color: $color_2;
+    }
+    span {
+      color: $color_1;
+    }
+  }
+  aside {
+    background-color: $color_2;
+  }
+  aside::after {
+    background: $color_1;
+  }
+  nav {
+    background-color: $color_2;
+    .menu-toggle {
+      background: $color_2;
+      border-color: $color_3;
+      div {
+        background-color: $color_3;
+      }
+    }
+  }
+  nav::after {
+    background: $color_1;
+  }
+  .events-list {
+    border-color: $color_3;
+  }
+  .icons {
+    border-color: $color_3;
+    color: $color_3;
+    path {
+      color: $color_3;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_1;
+    color: $color_1;
+  }
+  .events-list::-webkit-scrollbar-track {
+    background-color: #000000;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_3;
+  }
+}

@@ -1,0 +1,424 @@
+@import "mixins.scss";
+
+.Gaming {
+  .bg-center {
+    background: #23242a;
+  }
+  .lds {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    $positions_top: (63px, 68px, 71px, 72px, 71px, 68px, 63px, 56px);
+    $positions_left: (63px, 56px, 48px, 40px, 32px, 24px, 17px, 12px);
+    $delay: (
+      -0.036s,
+      -0.072s,
+      -0.108s,
+      -0.144s,
+      -0.18s,
+      -0.216s,
+      -0.252s,
+      -0.288s
+    );
+    @for $i from 1 through 8 {
+      div:nth-child(#{$i}) {
+        animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        transform-origin: 40px 40px;
+        -webkit-animation: lds-roller
+          1.2s
+          cubic-bezier(0.5, 0, 0.5, 1)
+          infinite;
+        animation-delay: nth($delay, $i);
+      }
+      div:nth-child(#{$i}):after {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin: -4px 0 0 -4px;
+        top: nth($positions_top, $i);
+        left: nth($positions_left, $i);
+      }
+    }
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .box {
+    background: #1c1c1c;
+    overflow: hidden;
+    border-radius: 8px;
+    &::before {
+      @include dynamic-rotation;
+    }
+    &::after {
+      @include dynamic-rotation;
+      animation-delay: -3s;
+    }
+    @keyframes login-form {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .form {
+      background: #28292d;
+      border-radius: 8px;
+      inset: 2px;
+      .inbox {
+        margin-top: 35px;
+        input {
+          color: #23242a;
+          background: transparent;
+          border: none;
+          outline: none;
+        }
+        span {
+          color: #8f8f8f;
+          top: 0;
+          transition: 0.5s;
+        }
+        i {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          width: 112%;
+          height: 2px;
+          border-radius: 4px;
+          transition: 0.5s;
+          pointer-events: none;
+          z-index: 9;
+        }
+        .inputError {
+          color: #8f8f8f;
+        }
+        input:valid {
+          ~ {
+            span {
+              transform: translateX(0px) translateY(-25px);
+              font-size: 1em;
+            }
+            i {
+              height: 35px;
+            }
+          }
+        }
+        input:focus ~ {
+          span {
+            transform: translateX(0px) translateY(-25px);
+            font-size: 1em;
+          }
+          i {
+            height: 35px;
+          }
+        }
+      }
+    }
+  }
+  .links {
+    a {
+      color: #8f8f8f;
+    }
+  }
+  button {
+    border-radius: 4px;
+  }
+  aside {
+    background: #28292d;
+  }
+  aside::after {
+    background: #8c8c8c;
+  }
+  nav {
+    background: #28292d;
+    .menu-toggle {
+      background: #8c8c8c;
+    }
+  }
+  .events-list::-webkit-scrollbar-track {
+    background-color: #000000;
+  }
+  .creation,
+  .modification,
+  .deletion {
+    background: #28292d;
+
+    input {
+      color: #23242a;
+    }
+    span {
+      color: #8f8f8f;
+    }
+  }
+}
+.Gaming-green {
+  $color_1: #6fff00;
+  .lds {
+    @for $i from 1 through 8 {
+      div:nth-child(#{$i}):after {
+        background: $color_1;
+      }
+    }
+  }
+  nav {
+    .menu-toggle {
+      border-color: $color_1;
+      div {
+        background-color: $color_1;
+      }
+    }
+  }
+  nav::after {
+    background: $color_1;
+  }
+  .events-list {
+    border-color: $color_1;
+  }
+  .icons {
+    border-color: $color_1;
+    color: $color_1;
+    path {
+      color: $color_1;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_1;
+    color: $color_1;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_1;
+  }
+  .creation,
+  .modification,
+  .deletion {
+    h2 {
+      color: $color_1;
+    }
+    input {
+      background: $color_1;
+    }
+  }
+
+  .box {
+    &::before {
+      background: linear-gradient(0deg, transparent, $color_1, $color_1);
+    }
+    &::after {
+      background: linear-gradient(0deg, transparent, $color_1, $color_1);
+    }
+
+    h2 {
+      color: $color_1;
+    }
+    input:valid {
+      ~ {
+        span {
+          color: $color_1;
+        }
+      }
+    }
+    input:focus ~ {
+      span {
+        color: $color_1;
+      }
+    }
+    i {
+      background: $color_1;
+    }
+  }
+  .links {
+    a:hover {
+      color: $color_1;
+    }
+  }
+  button {
+    background: $color_1;
+  }
+  button:hover {
+    box-shadow: 0px 0px 10px $color_1;
+  }
+}
+.Gaming-red {
+  $color_1: #ff3511;
+  .lds {
+    @for $i from 1 through 8 {
+      div:nth-child(#{$i}):after {
+        background: $color_1;
+      }
+    }
+  }
+  nav {
+    .menu-toggle {
+      border-color: $color_1;
+      div {
+        background-color: $color_1;
+      }
+    }
+  }
+  nav::after {
+    background: $color_1;
+  }
+  .events-list {
+    border-color: $color_1;
+  }
+  .icons {
+    border-color: $color_1;
+    color: $color_1;
+    path {
+      color: $color_1;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_1;
+    color: $color_1;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_1;
+  }
+  .creation,
+  .modification,
+  .deletion {
+    h2 {
+      color: $color_1;
+    }
+    input {
+      background: $color_1;
+    }
+  }
+  .box {
+    &::before {
+      background: linear-gradient(0deg, transparent, $color_1, $color_1);
+    }
+    &::after {
+      background: linear-gradient(0deg, transparent, $color_1, $color_1);
+    }
+    h2 {
+      color: $color_1;
+    }
+    input:valid {
+      ~ {
+        span {
+          color: $color_1;
+        }
+      }
+    }
+    input:focus ~ {
+      span {
+        color: $color_1;
+      }
+    }
+    i {
+      background: $color_1;
+    }
+  }
+  .links {
+    a:hover {
+      color: $color_1;
+    }
+  }
+  button {
+    background: $color_1;
+  }
+  button:hover {
+    box-shadow: 0px 0px 10px $color_1;
+  }
+}
+.Gaming-blue {
+  $color_1: #45f3ff;
+  .lds {
+    @for $i from 1 through 8 {
+      div:nth-child(#{$i}):after {
+        background: $color_1;
+      }
+    }
+  }
+  nav {
+    .menu-toggle {
+      border-color: $color_1;
+      div {
+        background-color: $color_1;
+      }
+    }
+  }
+  nav::after {
+    background: $color_1;
+  }
+  .events-list {
+    border-color: $color_1;
+  }
+  .icons {
+    border-color: $color_1;
+    color: $color_1;
+    path {
+      color: $color_1;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_1;
+    color: $color_1;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_1;
+  }
+  .creation,
+  .modification,
+  .deletion {
+    h2 {
+      color: $color_1;
+    }
+    input {
+      background: $color_1;
+    }
+  }
+  .box {
+    &::before {
+      background: linear-gradient(0deg, transparent, $color_1, $color_1);
+    }
+    &::after {
+      background: linear-gradient(0deg, transparent, $color_1, $color_1);
+    }
+    h2 {
+      color: $color_1;
+    }
+    input:valid {
+      ~ {
+        span {
+          color: $color_1;
+        }
+      }
+    }
+    input:focus ~ {
+      span {
+        color: $color_1;
+      }
+    }
+    i {
+      background: $color_1;
+    }
+  }
+  .links {
+    a:hover {
+      color: $color_1;
+    }
+  }
+  button {
+    background: $color_1;
+  }
+  button:hover {
+    box-shadow: 0px 0px 10px $color_1;
+  }
+}

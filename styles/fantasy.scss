@@ -1,0 +1,288 @@
+.Fantasy {
+  .lds {
+    color: official;
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    z-index: 1000;
+    height: 100px;
+    div {
+      transform-origin: 50px 50px;
+      animation: lds-spinner 1.2s linear infinite;
+    }
+    div:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 37px;
+      width: 8px;
+      height: 24px;
+      border-radius: 20%;
+    }
+    @for $i from 1 through 12 {
+      div:nth-child(#{$i}) {
+        $delay: -0.1s * (12-$i);
+        animation-delay: $delay;
+        $deg: 30deg * ($i - 1);
+        transform: rotate($deg);
+        animation-delay: $delay;
+        -webkit-transform: rotate($deg);
+        -moz-transform: rotate($deg);
+        -ms-transform: rotate($deg);
+        -o-transform: rotate($deg);
+      }
+    }
+    @keyframes lds-spinner {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+  .box {
+    clip-path: polygon(
+      10% 0%,
+      90% 0%,
+      100% 5%,
+      100% 95%,
+      90% 100%,
+      10% 100%,
+      0% 95%,
+      0% 5%
+    );
+    .form {
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      inset: 0px;
+      .inbox {
+        margin-top: 40px;
+        input {
+          height: 15px;
+          line-height: 30px;
+          outline: none;
+          vertical-align: middle;
+          border-radius: 6px;
+          -webkit-border-radius: 6px;
+          -moz-border-radius: 6px;
+          -ms-border-radius: 6px;
+          -o-border-radius: 6px;
+        }
+        span {
+          top: -33px !important;
+        }
+      }
+    }
+  }
+  .box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    top: 0;
+    left: 0;
+    z-index: 20;
+  }
+  button {
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-shadow: 1px 1px 1px #000000;
+    box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.8);
+    transition: transform 0.2s, box-shadow 0.2s;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+  }
+  .task,
+  .icons,
+  .date,
+  .title {
+    box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.8);
+  }
+}
+.Fantasy-light {
+  $color_1: #eedda5;
+  $color_2: #a06e41;
+  $color_3: #58433a;
+  $color_4: #f2f2f2;
+  .bg-center {
+    background: #bbbbbb;
+  }
+  .box {
+    .form {
+      background-color: $color_1;
+      h2 {
+        color: $color_3;
+      }
+      span {
+        color: $color_3;
+      }
+      a {
+        color: $color_3;
+      }
+      input {
+        color: $color_1;
+        background-color: $color_3;
+      }
+    }
+  }
+  .box::after {
+    background: linear-gradient(to left, #e57a73, #faa6a0, #e57a73);
+  }
+  button {
+    background-color: $color_2;
+    color: $color_4;
+  }
+  .lds {
+    div:after {
+      background: $color_1;
+    }
+  }
+  aside {
+    background-color: $color_1;
+  }
+  aside::after {
+    background: linear-gradient(to bottom, #e57a73, #faa6a0, #e57a73);
+  }
+  nav {
+    background-color: $color_1;
+    .menu-toggle {
+      background: $color_1;
+      border-color: $color_2;
+      div {
+        background-color: $color_2;
+      }
+    }
+  }
+  nav::after {
+    background: linear-gradient(to left, #e57a73, #faa6a0, #e57a73);
+  }
+  .events-list {
+    border-color: $color_3;
+  }
+  .icons {
+    border-color: $color_3;
+    color: $color_3;
+    path {
+      color: $color_3;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_3;
+  }
+  .events-list::-webkit-scrollbar-track {
+    background-color: $color_2;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_3;
+  }
+  .creation , .modification , .deletion{
+    background: $color_1;
+    h2{
+      color: $color_3;
+    }
+    input{
+      background: $color_3;
+      color: $color_1;
+    }
+    span{
+      color: $color_3;
+    }
+  }
+}
+.Fantasy-dark {
+  $color_1: #b6924b;
+  $color_2: #734b28;
+  $color_3: #33221b;
+  $color_4: #cccccc;
+  .creation , .modification , .deletion{
+    background: $color_1;
+    h2{
+      color: $color_3;
+    }
+    input{
+      background: $color_3;
+      color: $color_1;
+    }
+    span{
+      color: $color_3;
+    }
+  }
+  .bg-center {
+    background: #23242a;
+  }
+  .box {
+    .form {
+      background-color: $color_1;
+      h2 {
+        color: $color_3;
+      }
+      span {
+        color: $color_3;
+      }
+      a {
+        color: $color_3;
+      }
+      input {
+        color: $color_1;
+        background-color: $color_3;
+      }
+    }
+  }
+  .box::after {
+    background: linear-gradient(to left, #59312f, #914b32, #59312f);
+  }
+  button {
+    background-color: $color_2;
+    color: $color_4;
+  }
+  .lds {
+    div:after {
+      background: $color_1;
+    }
+  }
+  aside {
+    background-color: $color_1;
+  }
+  aside::after {
+    background: linear-gradient(to bottom, #59312f, #914b32, #59312f);
+  }
+  nav {
+    background-color: $color_1;
+    .menu-toggle {
+      background: $color_1;
+      border-color: $color_2;
+      div {
+        background-color: $color_2;
+      }
+    }
+  }
+  nav::after {
+    background: linear-gradient(to left, #59312f, #914b32, #59312f);
+  }
+  .events-list {
+    border-color: $color_3;
+  }
+  .icons {
+    border-color: $color_3;
+    color: $color_3;
+    path {
+      color: $color_3;
+    }
+  }
+  .date,
+  .title {
+    border-color: $color_3;
+  }
+  .events-list::-webkit-scrollbar-track {
+    background-color: $color_2;
+  }
+  .events-list::-webkit-scrollbar-thumb {
+    background-color: $color_3;
+  }
+}
