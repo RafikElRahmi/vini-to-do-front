@@ -70,24 +70,22 @@ export default function Reset() {
     }
   };
   return isLoading ? null : (
-        <div >
-          <h2>Sign in</h2>
-          <div className="inbox">
-            <input
-              type="text"
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <span>Email</span>
-            <i></i>
-            {mailError.length > 0 && (
-              <div className="inputError">{mailError}</div>
-            )}
-          </div>
-          <button type="submit" className="btn-forget" onClick={handleReset}>
-            login
-          </button>
-        </div>
+    <div>
+      <h2>Sign in</h2>
+      <div className="inbox">
+        <input
+          type="text"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <span>Email</span>
+        <i></i>
+        {mailError.length > 0 && <div className="inputError">{mailError}</div>}
+      </div>
+      <button type="submit" className="btn-forget" onClick={handleReset}>
+        send mail
+      </button>
+    </div>
   );
 }
